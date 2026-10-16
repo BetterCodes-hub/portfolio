@@ -1,0 +1,466 @@
+<title>Maciej Gilewski</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Maciej Gilewski – strony internetowe, aplikacje webowe i chatboty AI dla firm. Gdańsk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: light page built as a conversion path: positioning + one CTA beside a working chatbot demo (the product shown, not described), proof facts, case studies as problem → solution → result, services, FAQ that answers objections, final CTA. One saturated ultramarine accent; all else white and cool grey. Light-only by design. */
+:root{
+  --bg:#FFFFFF;
+  --tint:#F3F5FA;
+  --ink:#121A33;
+  --text:#3D4660;
+  --muted:#6E7891;
+  --line:#E1E5EF;
+  --accent:#2B4CF0;
+  --accent-dark:#1F3AC4;
+  --accent-soft:#EAEEFF;
+  --ok:#14915F;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Onest", "Segoe UI", system-ui, sans-serif;
+  --wrap:1160px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{animation:none!important; transition:none!important}}
+body{background:var(--bg); color:var(--text); font-family:var(--body); font-size:17px; line-height:1.65}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--accent); outline-offset:3px; border-radius:8px}
+.wrap{max-width:var(--wrap); margin:0 auto; padding-left:max(20px, env(safe-area-inset-left, 0px)); padding-right:max(20px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display); color:var(--ink); text-wrap:balance; margin:0; font-weight:700}
+h2{font-size:clamp(2rem, 4.6vw, 3.2rem); line-height:1.05; letter-spacing:-.035em; font-weight:800}
+h3{font-size:1.2rem; line-height:1.25; letter-spacing:-.01em}
+p{margin:0}
+
+/* header */
+.top{position:sticky; top:env(safe-area-inset-top, 0px); z-index:30; background:rgba(255,255,255,.88); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line)}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:10; background:var(--bg)}
+.top .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px; padding-block:14px}
+.brand{font-family:var(--display); font-weight:700; font-size:1.1rem; color:var(--ink); text-decoration:none; letter-spacing:-.01em}
+.nav{display:flex; gap:28px; align-items:center; font-size:.95rem}
+.nav a{text-decoration:none; color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:15px 26px; border-radius:12px; font-weight:600; text-decoration:none; font-size:1rem; border:1px solid var(--line); background:var(--bg); color:var(--ink); cursor:pointer; transition:transform .15s, background .15s, box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff; box-shadow:0 12px 24px -12px rgba(43,76,240,.7)}
+.btn.primary:hover{background:var(--accent-dark)}
+.btn.sm{padding:9px 16px; border-radius:10px; font-size:.92rem}
+
+/* hero */
+.hero{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; padding-block:72px 80px}
+.hero > *{min-width:0}
+.avail{display:inline-flex; align-items:center; gap:10px; font-size:.92rem; color:var(--text); border:1px solid var(--line); padding:6px 14px 6px 10px; border-radius:999px; margin-bottom:24px}
+.avail i{width:9px; height:9px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 4px rgba(20,145,95,.15)}
+.hero h1{font-size:clamp(2.6rem, 6vw, 4.8rem); line-height:.98; letter-spacing:-.045em; font-weight:800}
+.lead{margin-top:22px; font-size:1.17rem; max-width:31em}
+.hero .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:32px}
+.assure{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:22px; font-size:.92rem; color:var(--muted); list-style:none; padding:0}
+.assure li{display:flex; align-items:center; gap:8px}
+.assure svg{width:16px; height:16px; stroke:var(--ok); fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; flex:none}
+
+/* chatbot demo */
+.demo{background:var(--bg); border:1px solid var(--line); border-radius:24px; box-shadow:0 40px 80px -48px rgba(18,26,51,.45); display:flex; flex-direction:column; height:500px; max-height:78vh; overflow:hidden; position:relative}
+.demo::before{content:""; position:absolute; inset:-1px; border-radius:24px; padding:1px; background:linear-gradient(140deg, var(--accent), transparent 45%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none}
+.d-head{display:flex; align-items:center; gap:12px; padding:16px 18px; border-bottom:1px solid var(--line)}
+.d-av{width:36px; height:36px; border-radius:50%; background:var(--accent); color:#fff; display:grid; place-items:center; font-weight:700; font-size:.85rem; font-family:var(--display)}
+.d-head strong{display:block; color:var(--ink); font-size:.98rem; line-height:1.2}
+.d-head span{font-size:.8rem; color:var(--ok)}
+.d-badge{margin-left:auto; font-size:.75rem; color:var(--accent); background:var(--accent-soft); padding:4px 10px; border-radius:999px; font-weight:600}
+.d-log{flex:1; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:10px; scroll-behavior:smooth}
+.m{max-width:86%; padding:11px 15px; border-radius:16px; font-size:.95rem; line-height:1.5; animation:pop .35s ease both}
+.m.bot{background:var(--tint); color:var(--ink); align-self:flex-start; border-bottom-left-radius:5px}
+.m.me{background:var(--accent); color:#fff; align-self:flex-end; border-bottom-right-radius:5px}
+.m a{color:var(--accent); font-weight:600}
+@keyframes pop{from{transform:translateY(6px) scale(.98)}to{transform:none}}
+.typing{display:flex; gap:4px; padding:14px 16px}
+.typing i{width:7px; height:7px; border-radius:50%; background:var(--muted); opacity:.35; animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{50%{opacity:1}}
+.d-sugg{display:flex; gap:6px; flex-wrap:wrap; padding:0 18px 12px}
+.d-sugg button{border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:999px; padding:6px 12px; font-size:.85rem; cursor:pointer; transition:border-color .15s, background .15s}
+.d-sugg button:hover{border-color:var(--accent); background:var(--accent-soft)}
+.d-form{display:flex; gap:8px; padding:12px 14px; border-top:1px solid var(--line)}
+.d-form input{flex:1; min-width:0; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font:inherit; font-size:.95rem; color:var(--ink); background:var(--bg)}
+.d-form input:focus{outline:2px solid var(--accent); outline-offset:0; border-color:transparent}
+.d-form button{border:0; background:var(--accent); color:#fff; border-radius:12px; padding:0 16px; font-weight:600; cursor:pointer}
+.d-cap{font-size:.82rem; color:var(--muted); margin-top:12px; text-align:center}
+
+/* proof strip */
+.proof{border-block:1px solid var(--line); background:var(--tint)}
+.proof .wrap{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:24px; padding-block:30px}
+.proof div{min-width:0}
+.proof strong{display:block; font-family:var(--display); color:var(--ink); font-size:1.05rem; font-weight:700; margin-bottom:2px}
+.proof span{font-size:.93rem; color:var(--muted)}
+
+/* sections */
+section{padding-block:96px}
+.sec-head{margin-bottom:44px; display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap}
+.sec-head > div{max-width:640px}
+.sec-head p{margin-top:14px; font-size:1.08rem; color:var(--muted)}
+
+/* case studies */
+.cases{display:grid; gap:24px}
+.case{display:grid; grid-template-columns:1fr 1.1fr; border:1px solid var(--line); border-radius:24px; overflow:hidden; background:var(--bg)}
+.case > *{min-width:0}
+.case-visual{background:var(--accent-soft); position:relative; min-height:300px; display:grid; place-items:center; padding:32px}
+.case-visual img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0}
+.sketch{width:100%; max-width:380px; background:#fff; border-radius:14px; box-shadow:0 24px 50px -30px rgba(18,26,51,.5); padding:16px; display:flex; flex-direction:column; gap:9px}
+.sketch .bar{display:flex; gap:5px; margin-bottom:6px}
+.sketch .bar i{width:8px; height:8px; border-radius:50%; background:var(--line)}
+.sketch b{height:10px; width:42%; border-radius:5px; background:var(--ink)}
+.sketch .row{display:flex; align-items:center; gap:8px}
+.sketch .row i{flex:1; height:26px; border-radius:7px; background:var(--tint)}
+.sketch .row em{width:54px; height:14px; border-radius:7px; background:var(--accent-soft)}
+.sketch .row em.on{background:var(--accent)}
+.case-body{padding:36px; display:flex; flex-direction:column; gap:18px}
+.case-meta{display:flex; gap:8px; flex-wrap:wrap}
+.pill{font-size:.8rem; font-weight:600; padding:4px 11px; border-radius:999px; background:var(--tint); color:var(--text)}
+.pill.live{background:#E3F5EC; color:var(--ok)}
+.case-body h3{font-size:clamp(1.35rem, 2.4vw, 1.7rem); letter-spacing:-.02em}
+.psr{display:grid; gap:14px; margin:0}
+.psr div{display:grid; grid-template-columns:92px 1fr; gap:14px}
+.psr dt{font-weight:600; color:var(--ink); font-size:.95rem}
+.psr dd{margin:0; font-size:.97rem}
+.tags{display:flex; flex-wrap:wrap; gap:6px}
+.tag{font-size:.82rem; border:1px solid var(--line); padding:3px 10px; border-radius:999px}
+.case-cta{margin-top:auto; font-weight:600; color:var(--accent); text-decoration:none}
+.case-cta:hover{text-decoration:underline; text-underline-offset:3px}
+.next{border:1px dashed var(--line); border-radius:24px; padding:36px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; background:var(--tint)}
+.next p{color:var(--muted); margin-top:6px}
+
+/* services */
+.services{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px}
+.service{background:var(--tint); border-radius:22px; padding:32px; display:flex; flex-direction:column; gap:12px; transition:transform .2s, background .2s}
+.service:hover{transform:translateY(-4px)}
+.service.feat{background:var(--accent); color:#E4E9FF}
+.service.feat h3{color:#fff}
+.service.feat .for{color:#fff}
+.service.feat .ico{background:rgba(255,255,255,.16)}
+.service.feat .ico svg{stroke:#fff}
+.ico{width:48px; height:48px; border-radius:14px; background:var(--bg); display:grid; place-items:center; margin-bottom:4px}
+.ico svg{width:24px; height:24px; stroke:var(--accent); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.for{font-weight:600; color:var(--ink); font-size:.95rem}
+.service ul{margin:0; padding-left:1.1em}
+.service li + li{margin-top:6px}
+.stack{display:flex; flex-wrap:wrap; gap:8px 10px; margin-top:28px; align-items:center; color:var(--muted); font-size:.93rem}
+.stack span{border:1px solid var(--line); border-radius:999px; padding:4px 12px; color:var(--text)}
+
+/* steps */
+.steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px; counter-reset:s}
+.steps li{counter-increment:s; padding:26px; border:1px solid var(--line); border-radius:20px}
+.steps li::before{content:counter(s); width:36px; height:36px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-family:var(--display); font-weight:800; display:grid; place-items:center; margin-bottom:16px}
+.steps strong{display:block; color:var(--ink); font-family:var(--display); font-size:1.12rem; margin-bottom:6px}
+.steps span{color:var(--muted); font-size:.95rem}
+
+/* faq */
+.faq{display:grid; grid-template-columns:1fr 1.5fr; gap:56px}
+.faq > *{min-width:0}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none; cursor:pointer; padding:22px 40px 22px 0; font-family:var(--display); font-weight:700; color:var(--ink); font-size:1.12rem; position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:""; position:absolute; right:8px; top:50%; width:12px; height:12px; border-right:2px solid var(--accent); border-bottom:2px solid var(--accent); transform:translateY(-70%) rotate(45deg); transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details p{padding:0 0 22px; max-width:40em}
+
+/* final cta */
+.final{background:var(--accent); color:#E4E9FF; border-radius:32px; padding:72px clamp(24px, 6vw, 72px); display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:center; position:relative; overflow:hidden; margin-bottom:56px}
+.final::after{content:""; position:absolute; width:420px; height:420px; right:-140px; bottom:-200px; border-radius:50%; border:70px solid rgba(255,255,255,.08); pointer-events:none}
+.final > *{min-width:0; position:relative; z-index:1}
+.final h2{color:#fff; font-size:clamp(2.1rem, 5vw, 3.6rem)}
+.final p{margin-top:16px; font-size:1.12rem}
+.mailbox{background:#fff; color:var(--ink); border-radius:20px; padding:26px; display:flex; flex-direction:column; gap:12px}
+.mailbox .lbl{font-size:.88rem; color:var(--muted)}
+.mail{font-family:var(--display); font-weight:700; font-size:clamp(1.05rem, 2.4vw, 1.4rem); user-select:all; overflow-wrap:anywhere}
+.mail-actions{display:flex; gap:10px; flex-wrap:wrap}
+.copied{font-size:.9rem; color:var(--muted); min-height:1.4em}
+footer{padding-block:0 40px; color:var(--muted); font-size:.9rem; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+
+/* mobile sticky cta */
+.sticky{display:none}
+
+@media (max-width: 960px){
+  .hero, .case, .faq, .final{grid-template-columns:1fr}
+  .hero{gap:44px; padding-block:48px 64px}
+  .demo{height:460px}
+  .proof .wrap{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .services{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .nav a:not(.btn){display:none}
+  .case-visual{min-height:240px}
+  section{padding-block:72px}
+}
+@media (max-width: 620px){
+  .proof .wrap, .steps{grid-template-columns:1fr}
+  .case-body{padding:26px}
+  .psr div{grid-template-columns:1fr; gap:2px}
+  .sticky{display:block; position:fixed; left:0; right:0; bottom:0; z-index:25; padding:12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background:rgba(255,255,255,.94); border-top:1px solid var(--line); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px)}
+  .sticky .btn{width:100%}
+  footer{padding-bottom:110px}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#start">Maciej Gilewski</a>
+    <nav class="nav" aria-label="Sekcje">
+      <a href="#projekty">Projekty</a>
+      <a href="#uslugi">Usługi</a>
+      <a href="#faq">Pytania</a>
+      <a class="btn primary sm" href="#kontakt">Wyceń projekt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="start">
+  <div class="wrap hero">
+    <div>
+      <span class="avail"><i></i>Przyjmuję nowe zlecenia</span>
+      <h1>Strony i aplikacje, które zdobywają klientów i oszczędzają Twój czas</h1>
+      <p class="lead">Projektuję i programuję strony, systemy na zamówienie oraz chatboty AI dla małych i średnich firm. Wyceniam szybko i za darmo, a z projektem zostaję także po wdrożeniu.</p>
+      <div class="actions">
+        <a class="btn primary" href="#kontakt">Wyceń swój projekt</a>
+        <a class="btn" href="#projekty">Zobacz realizacje</a>
+      </div>
+      <ul class="assure">
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Bezpłatna wycena</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Odpowiedź w kilka godzin</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Faktura i umowa przez Useme</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="demo" aria-label="Demo chatbota">
+        <div class="d-head">
+          <span class="d-av">MG</span>
+          <div><strong>Asystent Macieja</strong><span>Online</span></div>
+          <span class="d-badge">Demo AI</span>
+        </div>
+        <div class="d-log" id="log" aria-live="polite"></div>
+        <div class="d-sugg" id="sugg"></div>
+        <form class="d-form" id="dform" autocomplete="off">
+          <input id="dq" type="text" placeholder="Zapytaj o stronę, cenę, termin…" aria-label="Twoje pytanie">
+          <button type="submit">Wyślij</button>
+        </form>
+      </div>
+      <p class="d-cap">Tak może działać chatbot na Twojej stronie. Kliknij pytanie albo wpisz własne.</p>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="wrap">
+      <div><strong>System w produkcji</strong><span>Moja aplikacja codziennie obsługuje magazyn firmy produkcyjnej</span></div>
+      <div><strong>AI w praktyce</strong><span>Asystenci, którzy czytają faktury, oferty i dokumenty z PDF</span></div>
+      <div><strong>Od pomysłu do wdrożenia</strong><span>Projekt, kod, hosting i wsparcie w jednym miejscu</span></div>
+      <div><strong>Bezpieczna współpraca</strong><span>Umowa i płatność zabezpieczone przez Useme</span></div>
+    </div>
+  </div>
+
+  <section id="projekty" aria-labelledby="p-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="p-h">Realizacje</h2>
+          <p>Przy każdym projekcie pokazuję, z czym przyszedł klient, co zbudowałem i co to zmieniło.</p>
+        </div>
+      </div>
+      <div class="cases" id="cases"></div>
+    </div>
+  </section>
+
+  <section id="uslugi" style="background:var(--bg); border-top:1px solid var(--line)" aria-labelledby="u-h">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 id="u-h">Co mogę dla Ciebie zrobić</h2><p>Trzy rzeczy, w których jestem najlepszy. Wybierz, od czego zaczynamy.</p></div></div>
+      <div class="services">
+        <div class="service">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div>
+          <h3>Strona internetowa</h3>
+          <p class="for">Dla firm, które chcą zdobywać klientów z internetu.</p>
+          <ul>
+            <li>wizytówka, landing page lub strona firmowa</li>
+            <li>szybka, czytelna i dopasowana do telefonów</li>
+            <li>poprawki i rozbudowa istniejącej strony</li>
+          </ul>
+        </div>
+        <div class="service">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></div>
+          <h3>Aplikacja na zamówienie</h3>
+          <p class="for">Dla firm, które tracą czas na Excela i maile.</p>
+          <ul>
+            <li>systemy, panele i narzędzia dla zespołu</li>
+            <li>integracje: płatności, API, import danych</li>
+            <li>działa w przeglądarce i na telefonie</li>
+          </ul>
+        </div>
+        <div class="service feat">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.6 1.6 1.6.6-1.6.6L19 20.4l-.6-1.6-1.6-.6 1.6-.6z"/></svg></div>
+          <h3>Chatbot i automatyzacja AI</h3>
+          <p class="for">Dla firm, które odpowiadają ciągle na te same pytania.</p>
+          <ul>
+            <li>chatbot na stronę, który zna Twoją ofertę</li>
+            <li>automatyczny odczyt faktur i dokumentów</li>
+            <li>automatyzacja maili i powtarzalnych zadań</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stack">Pracuję w: <span>React</span><span>JavaScript</span><span>PHP</span><span>Python</span><span>WordPress</span><span>Supabase</span><span>Vercel</span><span>Claude API</span><span>OpenAI API</span><span>LangChain</span><span>n8n</span></div>
+    </div>
+  </section>
+
+  <section style="background:var(--tint)" aria-labelledby="w-h">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 id="w-h">Jak wygląda współpraca</h2><p>Wiesz, ile zapłacisz i kiedy dostaniesz wynik, zanim zacznę pracę.</p></div></div>
+      <ol class="steps">
+        <li style="background:var(--bg)"><strong>Rozmowa</strong><span>Opowiadasz o firmie i celu. Dopytuję o szczegóły.</span></li>
+        <li style="background:var(--bg)"><strong>Wycena</strong><span>Dostajesz konkretną cenę, zakres i termin.</span></li>
+        <li style="background:var(--bg)"><strong>Realizacja</strong><span>Widzisz postępy na bieżąco i zgłaszasz uwagi.</span></li>
+        <li style="background:var(--bg)"><strong>Wdrożenie i wsparcie</strong><span>Uruchamiam projekt i pomagam przy poprawkach.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="f-h">
+    <div class="wrap faq">
+      <div><h2 id="f-h">Częste pytania</h2><p style="margin-top:14px;color:var(--muted)">Nie ma tu Twojego pytania? Napisz, odpowiem w kilka godzin.</p></div>
+      <div>
+        <details open><summary>Ile kosztuje strona albo aplikacja?</summary><p>To zależy od zakresu. Prosta wizytówka to zupełnie inna praca niż system dla zespołu. Po krótkiej rozmowie przygotuję bezpłatną wycenę z konkretną ceną i terminem.</p></details>
+        <details><summary>Jak długo trwa realizacja?</summary><p>Termin podaję razem z wyceną i pilnuję go. Mniejsze strony robię szybko, przy większych projektach dzielę pracę na etapy, żebyś wcześnie widział efekty.</p></details>
+        <details><summary>Jak wygląda płatność?</summary><p>Rozliczam się przez Useme. Dostajesz fakturę VAT, a umowa i płatność są zabezpieczone przez platformę.</p></details>
+        <details><summary>Czy pomożesz po oddaniu projektu?</summary><p>Tak. Po wdrożeniu pomagam przy drobnych poprawkach, a przy dłuższej współpracy możemy ustalić stałą opiekę nad stroną lub aplikacją.</p></details>
+        <details><summary>Czy chatbot AI ma sens w małej firmie?</summary><p>Najczęściej tak, jeśli klienci zadają powtarzalne pytania o ceny, terminy czy dostępność. Chatbot odpowiada od razu, o każdej porze, a Ty dostajesz tylko te sprawy, które wymagają człowieka.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="final" id="kontakt">
+      <div>
+        <h2>Masz pomysł? Zróbmy z niego działający projekt.</h2>
+        <p>Napisz w dwóch zdaniach, czego potrzebujesz. Odpowiem w kilka godzin z pytaniami albo wstępną wyceną.</p>
+      </div>
+      <div class="mailbox">
+        <span class="lbl">Napisz na adres</span>
+        <span class="mail" id="mail">kontakt@twojadomena.pl</span>
+        <div class="mail-actions">
+          <button class="btn primary" id="copy" type="button">Kopiuj adres</button>
+          <a class="btn" href="https://useme.com/pl/roles/contractor/maciej-gilewski,62538/" target="_blank" rel="noopener">Zleć przez Useme</a>
+        </div>
+        <span class="copied" id="copied" aria-live="polite"></span>
+      </div>
+    </div>
+    <footer><span>© 2026 Maciej Gilewski</span><span>Gdańsk, Polska. Pracuję zdalnie z całą Polską.</span></footer>
+  </div>
+</main>
+
+<div class="sticky"><a class="btn primary" href="#kontakt">Wyceń swój projekt</a></div>
+
+<script>
+/* ============================================================
+   REALIZACJE – żeby dodać projekt, skopiuj jeden obiekt.
+   problem / solution / result: po jednym, dwóch zdaniach.
+   result: tylko prawdziwe efekty. Bez liczb opisz, co się zmieniło.
+   image: ścieżka do zrzutu (np. "img/projekt.png"); puste = szkic.
+   link: adres strony lub repozytorium (opcjonalnie).
+   ============================================================ */
+const PROJECTS = [
+  {
+    title: "System magazynowy z asystentem AI",
+    type: "Aplikacja webowa + AI",
+    live: true,
+    problem: "Firma produkcyjna prowadziła stany kartonów, zamówienia, faktury i dokumenty zgodności w rozproszonych plikach Excela i mailach.",
+    solution: "Zbudowałem jedną aplikację dla magazynu, kierowników i dostawców. Łączy dane z WMS i Power BI, a asystent AI odczytuje faktury i oferty z PDF.",
+    result: "Zespół widzi dostawy i braki w jednym miejscu, system sam ostrzega o niskim stanie, a dokumenty nie trzeba już przepisywać ręcznie.",
+    tags: ["React", "Supabase", "Claude API", "PWA"],
+    image: "",
+    link: ""
+  }
+];
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+document.getElementById('cases').innerHTML = PROJECTS.map(p => `
+  <article class="case">
+    <div class="case-visual">${p.image
+      ? `<img src="${esc(p.image)}" alt="Zrzut ekranu: ${esc(p.title)}" loading="lazy">`
+      : `<div class="sketch" aria-hidden="true"><div class="bar"><i></i><i></i><i></i></div><b></b>
+          <div class="row"><i></i><em class="on"></em></div><div class="row"><i></i><em></em></div>
+          <div class="row"><i></i><em></em></div><div class="row"><i></i><em class="on"></em></div></div>`}
+    </div>
+    <div class="case-body">
+      <div class="case-meta"><span class="pill">${esc(p.type)}</span>${p.live ? '<span class="pill live">Działa produkcyjnie</span>' : ''}</div>
+      <h3>${esc(p.title)}</h3>
+      <dl class="psr">
+        <div><dt>Problem</dt><dd>${esc(p.problem)}</dd></div>
+        <div><dt>Rozwiązanie</dt><dd>${esc(p.solution)}</dd></div>
+        <div><dt>Efekt</dt><dd>${esc(p.result)}</dd></div>
+      </dl>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+      ${p.link ? `<a class="case-cta" href="${esc(p.link)}" target="_blank" rel="noopener">Zobacz projekt</a>` : `<a class="case-cta" href="#kontakt">Chcesz podobne rozwiązanie? Napisz</a>`}
+    </div>
+  </article>`).join('') + `
+  <div class="next"><div><h3>Twój projekt może być następny</h3><p>Strona, aplikacja albo chatbot. Opisz pomysł, a przygotuję bezpłatną wycenę.</p></div><a class="btn primary" href="#kontakt">Wyceń swój projekt</a></div>`;
+
+/* ---------- chatbot demo (odpowiedzi zapisane na stałe) ---------- */
+const ANSWERS = [
+  {k:["cen","koszt","kosztuje","ile","budżet","drogo"], q:"Ile kosztuje strona?",
+   a:"Cena zależy od zakresu. Prosta wizytówka to mniej pracy niż sklep czy system dla firmy. Opisz, czego potrzebujesz, a Maciej przygotuje bezpłatną wycenę z konkretną kwotą i terminem."},
+  {k:["czas","długo","termin","kiedy","szybko","tydzie"], q:"Jak długo to trwa?",
+   a:"Termin dostajesz razem z wyceną. Mniejsze strony powstają szybko, a większe projekty są dzielone na etapy, więc postępy widzisz od pierwszych dni."},
+  {k:["kontakt","napisa","mail","rozmow","zacząć","start"], q:"Jak zacząć?",
+   a:'Najprościej: napisz w dwóch zdaniach, czego potrzebujesz. <a href="#kontakt">Przejdź do kontaktu</a>, Maciej odpowie w kilka godzin.'},
+  {k:["chatbot"," ai","ai ","sztuczn","bot","automaty"], q:"Zrobisz chatbota dla mojej firmy?",
+   a:"Tak, właśnie ze mną rozmawiasz 🙂 Chatbot może znać Twój cennik, godziny otwarcia i ofertę, odpowiadać klientom całą dobę i przekazywać Ci tylko sprawy wymagające człowieka."},
+  {k:["płat","faktur","umow","useme","bezpiecz"], q:"Jak wygląda płatność?",
+   a:"Rozliczenie idzie przez Useme. Dostajesz fakturę VAT, a umowa i płatność są zabezpieczone przez platformę."},
+  {k:["sklep","wordpress","wizytówk","stron","landing"], q:"Robisz też sklepy i WordPressa?",
+   a:"Tak. Maciej robi strony wizytówki, landing page, strony firmowe na WordPressie i rozwiązania pisane od zera. Dobiera technologię do Twojego celu i budżetu."}
+];
+const FALLBACK = 'Dobre pytanie. Na to najlepiej odpowie sam Maciej. <a href="#kontakt">Napisz do niego</a>, odpowiada zwykle w kilka godzin.';
+const log = document.getElementById('log'), sugg = document.getElementById('sugg');
+let asked = new Set();
+
+function add(html, who){
+  const d = document.createElement('div'); d.className = 'm ' + who;
+  if (who === 'me') d.textContent = html; else d.innerHTML = html;
+  log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
+}
+function reply(html){
+  const t = document.createElement('div'); t.className = 'm bot typing'; t.innerHTML = '<i></i><i></i><i></i>';
+  log.appendChild(t); log.scrollTop = log.scrollHeight;
+  setTimeout(() => { t.remove(); add(html, 'bot'); drawSugg(); }, 750);
+}
+function answerFor(text){
+  const s = ' ' + text.toLowerCase() + ' ';
+  const hit = ANSWERS.find(a => a.k.some(k => s.includes(k)));
+  if (hit) asked.add(hit.q);
+  return hit ? hit.a : FALLBACK;
+}
+function drawSugg(){
+  const left = ANSWERS.filter(a => !asked.has(a.q)).slice(0, 3);
+  sugg.innerHTML = left.map(a => `<button type="button">${esc(a.q)}</button>`).join('');
+}
+sugg.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  sugg.innerHTML = ''; add(b.textContent, 'me'); reply(answerFor(b.textContent));
+});
+document.getElementById('dform').addEventListener('submit', e => {
+  e.preventDefault();
+  const inp = document.getElementById('dq'); const v = inp.value.trim(); if (!v) return;
+  inp.value = ''; sugg.innerHTML = ''; add(v, 'me'); reply(answerFor(v));
+});
+add('Cześć! Jestem demo asystenta AI, takiego, jakiego Maciej może zrobić dla Twojej firmy. O co chcesz zapytać?', 'bot');
+drawSugg();
+
+/* ---------- kopiowanie adresu ---------- */
+document.getElementById('copy').addEventListener('click', function(){
+  const el = document.getElementById('mail'), out = document.getElementById('copied');
+  function fallback(){
+    const r = document.createRange(); r.selectNodeContents(el);
+    const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    out.textContent = 'Adres zaznaczony. Skopiuj go skrótem Ctrl+C.';
+  }
+  try{ navigator.clipboard.writeText(el.textContent.trim()).then(() => out.textContent = 'Skopiowano adres.', fallback); }
+  catch(e){ fallback(); }
+});
+</script>
